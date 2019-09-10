@@ -1,0 +1,52 @@
+﻿@model GPSNavigationSystem.Domain.Entities.User
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+@*<p>@ViewBag.Hashed</p>*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h2 class="form-signin-heading">GPS Navigation System</h2>
+    <div class="form-horizontal form-signin">
+        <h4>Login Page</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+

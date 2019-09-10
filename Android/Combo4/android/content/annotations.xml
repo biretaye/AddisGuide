@@ -1,0 +1,6 @@
+<root>
+  <item name='android.content.Intent FLAG_ACTIVITY_MULTIPLE_TASK'>
+    <annotation name='java.lang.annotation.Deprecated' />
+    <annotation name='android.support.annotation.NonNull' />
+  </item>
+</root>

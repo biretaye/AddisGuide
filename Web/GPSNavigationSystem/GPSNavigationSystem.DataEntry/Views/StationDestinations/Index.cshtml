@@ -1,0 +1,91 @@
+﻿@model GPSNavigationSystem.DataEntry.Models.StationDestinationViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+    var ss1 = @Session["searchString"] as string;
+    
+    
+}
+
+
+<p>
+    @Html.ActionLink("Add Taxi Stations", "Create", new { type = "Taxi" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("Add Bus Stations", "Create", new { type = "Bus" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("Add Train Stations", "Create", new { type = "Train" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("List All", "Index", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+</p>
+
+<form asp-controller="Catagories" asp-action="Index" class="form-inline">
+    <div class="form-group">
+        <input type="search" name="searchString" class="form-control" placeholder="Search" />
+
+
+    </div>
+    <div class="form-group">
+
+        <input type="submit" value="Search" class="btn btn-default" />
+
+    </div>
+</form>
+<br />
+
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Station Name
+            @*@Html.DisplayNameFor(model => model.StationDestinations.StationLocation.StationName)*@
+        </th>
+        
+        <th>
+            Destination
+            @*@Html.DisplayNameFor(model => model.StationDestinations.Destination.DestinationName)*@
+        </th>
+        
+        <th>
+            Station Type
+            @*@Html.DisplayNameFor(model => model.StationDestinations.StationLocation.StationType)*@
+        </th>
+        <th>
+            Mid Point
+            @*@Html.DisplayNameFor(model => model.MidPoint.MidPointName)*@
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.StationDestinations)    
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StationLocation.StationName)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination.DestinationName)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.StationLocation.StationType)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MidPoint.MidPointName)
+            </td>
+
+            <td>
+                
+                @Html.ActionLink("Edit", "Edit", new { id = item.StationDestinationID }, new { @class = "btn btn-success" })
+                @* @Html.ActionLink("Details", "Details", new { id = item.StationDestinationID }, new { @class = "btn btn-primary" })*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.StationDestinationID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, searchString = ss1 }))
+</div>

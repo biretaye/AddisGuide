@@ -1,0 +1,58 @@
+﻿@model GPSNavigationSystem.Domain.Entities.TrafficSignLocation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrafficSignLocation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TrafficSign.TrafficSignName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrafficSign.TrafficSignName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TSLocationStartLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TSLocationStartLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TSLocationStartLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TSLocationStartLongitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TSLocationEndLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TSLocationEndLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TSLocationEndLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TSLocationEndLongitude)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrafficSignLocationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

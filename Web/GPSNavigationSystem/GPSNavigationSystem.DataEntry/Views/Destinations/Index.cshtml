@@ -1,0 +1,72 @@
+﻿@model GPSNavigationSystem.DataEntry.Models.DestinationViewModel
+
+@{
+    ViewBag.Title = "Index";
+
+    var ss1 = @Session["searchString"] as string;
+}
+
+
+
+<p>
+    @Html.ActionLink("Add New Destination", "Create", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("List All Destinations", "Index", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+</p>
+
+<form asp-controller="Catagories" asp-action="Index" class="form-inline">
+    <div class="form-group">
+        <input type="search" name="searchString" class="form-control" placeholder="Search" />
+
+
+    </div>
+    <div class="form-group">
+
+        <input type="submit" value="Search" class="btn btn-default" />
+
+    </div>
+</form>
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Destinations)*@
+            Destination Name
+        </th>
+        <th>
+            @* @Html.DisplayNameFor(model => model.Destinations)*@
+            Latitude
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Destinations)*@
+            Longitude
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Destinations)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinationLatitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinationLongitude)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DestinationID }, new { @class = "btn btn-success" })
+                @*@Html.ActionLink("Details", "Details", new { id = item.DestinationID }, new { @class = "btn btn-primary" })*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.DestinationID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, searchString = ss1 }))
+</div>

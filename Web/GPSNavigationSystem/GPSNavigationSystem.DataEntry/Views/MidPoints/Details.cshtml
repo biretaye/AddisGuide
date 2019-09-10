@@ -1,0 +1,43 @@
+﻿@model GPSNavigationSystem.Domain.Entities.MidPoint
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MidPoint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MidPointName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MidPointName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MidPointLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MidPointLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MidPointLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MidPointLongitude)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MidPointID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

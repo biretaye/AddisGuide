@@ -1,0 +1,50 @@
+﻿@model GPSNavigationSystem.DataEntry.Models.CategoryViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New Category", "Create", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("List All Categories", "Index", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+</p>
+
+<form asp-controller="Catagories" asp-action="Index" class="form-inline">
+    <div class="form-group">
+        <input type="search" name="searchString" class="form-control" placeholder="Search" />
+
+
+    </div>
+    <div class="form-group">
+
+        <input type="submit" value="Search" class="btn btn-default" />
+
+    </div>
+</form>
+<br />
+<table class="table  table-hover">
+    <tr>
+        <th>
+            Category Name
+           @* @Html.DisplayNameFor(model => model.CategoryName)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Categories)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }, new { @class = "btn btn-success" })
+                @*@Html.ActionLink("Details", "Details", new { id = item.CategoryID }, new { @class = "btn btn-primary " })*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x }))
+</div>

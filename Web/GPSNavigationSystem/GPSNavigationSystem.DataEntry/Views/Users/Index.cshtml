@@ -1,0 +1,71 @@
+﻿@model IEnumerable<GPSNavigationSystem.Domain.Entities.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+    <p>
+        @Html.ActionLink("Add New User", "Create", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+        @Html.ActionLink("List All Users", "Index", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+
+
+     </p>
+    
+    <form asp-controller="Users" asp-action="Index" class="form-inline">
+        <div class="form-group">
+            <input type="search" name="name" class="form-control" placeholder="Search"/>
+            
+
+        </div>
+        <div class="form-group">
+            
+            <input type="submit" value="Search" class="btn btn-default" />
+
+        </div>
+    </form>
+    <p>
+
+    </p>
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lanme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lanme)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.username }, new { @class = "btn btn-success" }) 
+                    @*@Html.ActionLink("Details", "Details", new { id = item.username }, new { @class = "btn btn-primary " })*@ 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.username }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -1,0 +1,66 @@
+﻿@model GPSNavigationSystem.DataEntry.Models.ServiceProviderLocationViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Add New Service Provider Location", "Create", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("List All Service Providers", "Index", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+</p>
+
+
+<form asp-controller="ServiceProviderLocation" asp-action="Index" class="form-inline">
+    <div class="form-group">
+        <input type="search" name="searchString" class="form-control" placeholder="Search" />
+
+
+    </div>
+    <div class="form-group">
+
+        <input type="submit" value="Search" class="btn btn-default" />
+
+    </div>
+</form>
+<br />
+<table class="table table-hover ">
+    <tr>
+
+        <th>
+            @*@Html.DisplayNameFor(model => model.ServiceProvider.ServiceProviderName)*@
+            Name
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ServiceProviderLatitude)*@
+            Latitude
+        </th>
+        <th>
+           @* @Html.DisplayNameFor(model => model.ServiceProviderLongitude)*@
+            Longitude
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model.ServiceProviderLocations)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceProvider.ServiceProviderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceProviderLatitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceProviderLongitude)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ServiceProviderLocationID }, new { @class = "btn btn-success" })
+                @*@Html.ActionLink("Details", "Details", new { id = item.ServiceProviderLocationID }, new { @class = "btn btn-primary" }),*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.ServiceProviderLocationID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

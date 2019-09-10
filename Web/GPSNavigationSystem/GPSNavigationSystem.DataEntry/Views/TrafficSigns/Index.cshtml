@@ -1,0 +1,53 @@
+﻿@model GPSNavigationSystem.DataEntry.Models.TrafficSignViewModel
+
+@{
+    ViewBag.Title = "Index";
+    var ss1 = @Session["searchString"] as string;
+}
+
+<p>
+    @Html.ActionLink("Add New Sign", "Create", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("List All Signs", "Index", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+</p>
+
+<form asp-controller="Catagories" asp-action="Index" class="form-inline">
+    <div class="form-group">
+        <input type="search" name="searchString" class="form-control" placeholder="Search" />
+
+
+    </div>
+    <div class="form-group">
+
+        <input type="submit" value="Search" class="btn btn-default" />
+
+    </div>
+</form>
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Traffic Sign Name
+            @*@Html.DisplayNameFor(model => model.TrafficSignName)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.TrafficSigns) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrafficSignName)
+        </td>
+        <td>
+            @Html.ActionLink("Add Locations", "Add", new { id = item.TrafficSignName }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Edit", "Edit", new { id = item.TrafficSignID }, new { @class = "btn btn-success" })
+            
+            @Html.ActionLink("Delete", "Delete", new { id = item.TrafficSignID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, searchString = ss1 }))
+</div>

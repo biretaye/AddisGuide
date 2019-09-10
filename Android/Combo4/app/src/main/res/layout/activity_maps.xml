@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<fragment
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapsActivity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ፈልግ"
+        android:id="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/price_text" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ቅርብ"
+        android:id="@+id/nearest_btn"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/button" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dest_text"
+        android:hint="enter destination"
+        android:layout_alignBottom="@+id/button"
+        android:layout_toStartOf="@+id/button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ሌሎች አማራጮች"
+        android:id="@+id/price_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price list"
+        android:id="@+id/price_text"
+        android:layout_above="@+id/price_btn"
+        android:layout_centerHorizontal="true" />
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiple_actions"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        app:fab_addButtonColorNormal="#fafafa"
+        app:fab_addButtonColorPressed="#f1f1f1"
+        app:fab_addButtonPlusIconColor="#808080"
+        app:fab_labelStyle="@style/menu_labels_style">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action_a"
+            app:fab_icon="@drawable/ic_local_taxi"
+            app:fab_colorNormal="#078B86"
+            app:fab_colorPressed="#1F404C"
+            app:fab_title="በታክሲ"
+            app:fab_size="normal"
+            android:onClick="float_click"
+            />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action_b"
+            app:fab_icon="@drawable/ic_directions_bus"
+            app:fab_colorNormal="#078B86"
+            app:fab_colorPressed="#1F404C"
+            app:fab_title="በአቶቢስ"
+            app:fab_size="normal"
+            android:onClick="float_click"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/action_c"
+        app:fab_icon="@drawable/ic_tram"
+        app:fab_colorNormal="#078B86"
+        app:fab_colorPressed="#1F404C"
+        app:fab_title="በባቡር"
+        app:fab_size="normal"
+        android:onClick="float_click"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action_d"
+            app:fab_icon="@drawable/ic_navigation"
+            app:fab_colorNormal="#078B86"
+            app:fab_colorPressed="#1F404C"
+            app:fab_title="በመኪና"
+            app:fab_size="normal"
+            android:onClick="float_click"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action_e"
+            app:fab_icon="@drawable/ic_cast_on_1_light"
+            app:fab_colorNormal="#078B86"
+            app:fab_colorPressed="#1F404C"
+            app:fab_title="በእግር"
+            app:fab_size="normal"
+            android:onClick="float_click"/>
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
+
+</RelativeLayout>

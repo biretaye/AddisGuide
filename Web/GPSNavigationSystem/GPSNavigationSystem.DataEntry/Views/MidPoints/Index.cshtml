@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GPSNavigationSystem.Domain.Entities.MidPoint>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MidPointName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MidPointLatitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MidPointLongitude)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MidPointName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MidPointLatitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MidPointLongitude)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MidPointID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MidPointID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MidPointID })
+        </td>
+    </tr>
+}
+
+</table>

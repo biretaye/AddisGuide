@@ -1,0 +1,93 @@
+﻿@model GPSNavigationSystem.Domain.Entities.TrafficSignLocation
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TrafficSignLocation</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.TrafficSignLocationID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrafficSignID, "TrafficSignID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TrafficSignID", null, htmlAttributes: new { @class = "form-control chosen-select" })
+                @Html.ValidationMessageFor(model => model.TrafficSignID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TSLocationStartLatitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TSLocationStartLatitude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TSLocationStartLatitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TSLocationStartLongitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TSLocationStartLongitude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TSLocationStartLongitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TSLocationEndLatitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TSLocationEndLatitude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TSLocationEndLatitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TSLocationEndLongitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TSLocationEndLongitude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TSLocationEndLongitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/chosen.jquery.js"></script>
+<script src="~/Scripts/prism.js"></script>
+
+<script type="text/javascript">
+
+
+         var config = {
+             '.chosen-select': {},
+             '.chosen-select-deselect': { allow_single_deselect: true },
+             '.chosen-select-no-single': { disable_search_threshold: 10 },
+             '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+             '.chosen-select-width': { width: "95%"}//,
+             //'.chosen-search': {disable_search: false}
+         }
+         for (var selector in config) {
+             $(selector).chosen(config[selector]);
+         }
+
+</script>

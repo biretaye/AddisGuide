@@ -1,0 +1,50 @@
+﻿@model GPSNavigationSystem.Domain.Entities.StationLocation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StationLocation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StationLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StationLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StationLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StationLongitude)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StationLocationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

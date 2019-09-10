@@ -1,0 +1,64 @@
+﻿@model GPSNavigationSystem.Domain.Entities.Street
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Street</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetStartLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetStartLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetStartLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetStartLongitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetEndLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetEndLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetEndLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetEndLongitude)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

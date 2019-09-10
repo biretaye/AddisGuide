@@ -1,0 +1,65 @@
+﻿@model GPSNavigationSystem.DataEntry.Models.TrafficSignLocationViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<p>
+    @Html.ActionLink("Add Traffic Sign Location", "Create", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            Sign Name
+            @*@Html.DisplayNameFor(model => model.TrafficSign.TrafficSignName)*@
+        </th>
+        <th>
+            Start Latitude
+            @*@Html.DisplayNameFor(model => model.TSLocationStartLatitude)*@
+        </th>
+        <th>
+            Start Longitude
+            @*@Html.DisplayNameFor(model => model.TSLocationStartLongitude)*@
+        </th>
+        <th>
+            End Latitude
+           @* @Html.DisplayNameFor(model => model.TSLocationEndLatitude)*@
+        </th>
+        <th>
+            End Longitude
+            @*@Html.DisplayNameFor(model => model.TSLocationEndLongitude)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.TrafficSignLocations) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrafficSign.TrafficSignName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TSLocationStartLatitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TSLocationStartLongitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TSLocationEndLatitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TSLocationEndLongitude)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.TrafficSignLocationID }, new { @class = "btn btn-success" })
+            @*@Html.ActionLink("Details", "Details", new { id = item.TrafficSignLocationID }, new { @class = "btn btn-primary" })*@
+            @Html.ActionLink("Delete", "Delete", new { id = item.TrafficSignLocationID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x }))
+</div>

@@ -1,0 +1,82 @@
+﻿@model GPSNavigationSystem.DataEntry.Models.StreetViewModel
+
+@{
+    ViewBag.Title = "Index";
+
+    var ss1 = @Session["searchString"] as string;
+}
+
+<p>
+    @Html.ActionLink("Add New Street", "Create", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("List All Streets", "Index", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+</p>
+
+<form asp-controller="Catagories" asp-action="Index" class="form-inline">
+    <div class="form-group">
+        <input type="search" name="searchString" class="form-control" placeholder="Search" />
+
+
+    </div>
+    <div class="form-group">
+
+        <input type="submit" value="Search" class="btn btn-default" />
+
+    </div>
+</form>
+<br />
+<table class="table  table-hover">
+    <tr>
+        <th>
+            Street Name
+            @*@Html.DisplayNameFor(model => model.StreetName)*@
+        </th>
+        <th>
+            Start Latitude
+           @* @Html.DisplayNameFor(model => model.StreetStartLatitude)*@
+        </th>
+        <th>
+            Start Longitude
+           @* @Html.DisplayNameFor(model => model.StreetStartLongitude)*@
+        </th>
+        <th>
+            End Latitude
+            @*@Html.DisplayNameFor(model => model.StreetEndLatitude)*@
+        </th>
+        <th>
+            End Longitude
+            @*@Html.DisplayNameFor(model => model.StreetEndLongitude)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Streets)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetStartLatitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetStartLongitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetEndLatitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetEndLongitude)
+            </td>
+            <td>
+                @Html.ActionLink("Add Houses", "Add", new { id = item.StreetName }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Edit", "Edit", new { id = item.StreetID }, new { @class = "btn btn-success" })
+                
+                @Html.ActionLink("Delete", "Delete", new { id = item.StreetID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, searchString = ss1 }))
+</div>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="google.com.combo4.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f1f1f1"
+        tools:context=".MainActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:text="እንኳን ደህና መጡ !"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="የምን አገልግሎት ይፈልጋሉ ?"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:paddingTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="16dp"
+                android:background="#fff"
+                android:elevation="4dp">
+
+                <ImageButton
+                    android:id="@+id/restaurant"
+                    android:onClick="find_sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="28dp"
+                    android:src="@drawable/ic_bank"
+                    android:layout_gravity="left|top" />
+
+                <ImageButton
+                    android:id="@+id/gas_stations"
+                    android:onClick="find_sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="28dp"
+                    android:src="@drawable/ic_cafe"
+                    />
+
+                <ImageButton
+                    android:id="@+id/bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginLeft="170dp"
+                    android:src="@drawable/ic_gas_station"
+                    android:onClick="find_sp"/>
+                <ImageButton
+                    android:id="@+id/serv_button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginLeft="250dp"
+                    android:src="@drawable/ic_supermarket"
+                    android:onClick="find_sp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_1"
+                    android:textColor="#078B86"
+                    android:id="@+id/button"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+            </FrameLayout>
+
+            <TextView
+                android:text="ወዴት መሄድ ይፈልጋሉ ?"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:paddingTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="16dp"
+                android:background="#fff"
+                android:elevation="4dp">
+
+                <ImageButton
+                    android:id="@+id/taxi_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="28dp"
+                    android:src="@drawable/ic_mini_bus"
+                    android:layout_gravity="left|top"
+                    android:onClick="find_bus"/>
+
+                <ImageButton
+                    android:id="@+id/bus_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="28dp"
+                    android:src="@drawable/ic_bus"
+                    android:onClick="find_bus"/>
+
+                <ImageButton
+
+                    android:id="@+id/train_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginLeft="170dp"
+                    android:src="@drawable/ic_train"
+                    android:onClick="find_bus"/>
+                <ImageButton
+                    android:id="@+id/nav_button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginLeft="250dp"
+                    android:src="@drawable/ic_walk"
+                    android:onClick="find_bus"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:text="የቤት ቁጥር ያስገቡ"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:paddingTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="16dp"
+                android:background="#fff"
+                android:elevation="16dp">
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/house_text"
+                    android:layout_gravity="left|top"
+                    android:hint="የቤት ቁጥር"
+
+                   />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/street_text"
+                    android:layout_gravity="left|bottom"
+                    android:hint="የመንገድ አድራሻ"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ፈልግ"
+                    android:textColor="#078B86"
+                    android:id="@+id/search_house"
+                    android:layout_gravity="center"
+                    android:onClick="find_house"/>
+
+            </FrameLayout>
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

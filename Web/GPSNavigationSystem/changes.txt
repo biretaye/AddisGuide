@@ -1,0 +1,26 @@
+changes - View
+- stationlocation - index, Add
+- destination - index
+- station destination - index
+- shared - the layout 
+- street - index Add
+- houses - index Add
+
+changes - Controllers
+- destination
+- station destination controller
+- station location
+- Street
+- Houses 
+- traffic signs
+
+Entities
+- Destination
+- Service Provider Location
+- Houses
+
+controllers and all of their views  
+- Destination
+- Service Povider Location
+- Houses 
+- Streets - only add

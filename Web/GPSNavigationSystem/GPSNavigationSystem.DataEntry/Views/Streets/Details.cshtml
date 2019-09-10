@@ -1,0 +1,58 @@
+﻿@model GPSNavigationSystem.Domain.Entities.Street
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Street</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetStartLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetStartLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetStartLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetStartLongitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetEndLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetEndLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetEndLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetEndLongitude)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StreetID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

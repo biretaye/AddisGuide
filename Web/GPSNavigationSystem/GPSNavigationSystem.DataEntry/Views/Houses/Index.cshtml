@@ -1,0 +1,82 @@
+﻿@model GPSNavigationSystem.DataEntry.Models.HouseViewModel
+
+@{
+    ViewBag.Title = "Index";
+    var ss1 = @Session["ss1"] as string;
+    var ss2 = @Session["ss2"] as string;
+
+}
+
+<p>
+    @Html.ActionLink("Add New House", "Create", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("List All Houses", "Index", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
+</p>
+
+<form asp-controller="Catagories" asp-action="Index" class="form-inline">
+    <div class="form-group">
+        <input type="search" name="searchString" class="form-control" placeholder="House No" />
+
+    </div>
+    <div class="form-group">
+        <input type="search" name="searchString2" class="form-control" placeholder="Street Name" />
+
+    </div>
+    <div class="form-group">
+
+        <input type="submit" value="Search" class="btn btn-default" />
+
+    </div>
+</form>
+<br />
+<table class="table  table-hover">
+    <tr>
+        <th>
+            House No
+           @* @Html.DisplayNameFor(model => model.HouseNumber)*@
+        </th>
+        <th>
+            Street Name
+            @*@Html.DisplayNameFor(model => model.Street.StreetName)*@
+        </th>
+        
+        <th>
+            Latitude
+            @*@Html.DisplayNameFor(model => model.House_Latitude)*@
+        </th>
+        <th>
+            Longitude
+            @*@Html.DisplayNameFor(model => model.House_Longitude)*@
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Houses)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street.StreetName)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.House_Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.House_Longitude)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.HouseID }, new { @class = "btn btn-success" })
+               @* @Html.ActionLink("Details", "Details", new { id = item.HouseID }, new { @class = "btn btn-primary " })*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.HouseID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, searchString = ss1, searchString2 = ss2 }))
+</div>

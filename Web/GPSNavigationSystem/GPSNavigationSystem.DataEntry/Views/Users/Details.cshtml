@@ -1,0 +1,44 @@
+﻿@model GPSNavigationSystem.Domain.Entities.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+    <div>
+        <h4>User</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.fname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.lanme)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.lanme)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.password)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.username }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
