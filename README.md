@@ -12,6 +12,6 @@ commuters find the best path to their destination.
 * **Traffic Rule Assistance** - turn on traffic rule assistance to be notified traffic rules based on the user's location like 
                           speed limits warning, no parking areas and so on.
 * **Cheapest routes** - find the cheapest route and recommendations on mode of transportation (train/bus/taxi). Get detailed directions including transits. 
-* **Turn-by-Turn voice guidance** - real time turn-by-turn voice and text direction guidance for drivers in Amharic (official languate of Ethiopia). 
+* **Turn-by-Turn voice guidance** - real time turn-by-turn voice and text direction guidance for drivers in Amharic (official language of Ethiopia). 
 
 
